@@ -64,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
             findViewById(R.id.ngobox).setVisibility(View.GONE);
         }
     }
-//hgshjdsajdg
+
     public void submit()
     {
         Map<String,Object> user = new HashMap<>();
