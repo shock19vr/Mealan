@@ -16,7 +16,6 @@ import androidx.core.view.WindowInsetsCompat;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
-import com.google.firebase.Firebase;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
@@ -65,7 +64,7 @@ public class RegisterActivity extends AppCompatActivity {
             findViewById(R.id.ngobox).setVisibility(View.GONE);
         }
     }
-
+//hgshjdsajdg
     public void submit()
     {
         Map<String,Object> user = new HashMap<>();
