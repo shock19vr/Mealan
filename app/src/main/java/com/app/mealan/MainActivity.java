@@ -2,6 +2,7 @@ package com.app.mealan;
 
 import android.content.Intent;
 import android.os.Bundle;
+import android.os.Handler;
 
 import androidx.activity.EdgeToEdge;
 import androidx.appcompat.app.AppCompatActivity;
@@ -23,11 +24,10 @@ public class MainActivity extends AppCompatActivity {
 
         });
 
-        findViewById(R.id.main).setOnClickListener(view->login());
-    }
-    public void login()
-    {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+
+        new Handler().postDelayed(() -> {
+            startActivity(new Intent(MainActivity.this, LoginActivity.class));
+            finish();
+        }, 3000);
     }
 }

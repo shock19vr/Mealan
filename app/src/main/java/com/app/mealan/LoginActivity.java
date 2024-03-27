@@ -22,7 +22,7 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
-        findViewById(R.id.main).setOnClickListener(view->register());
+        findViewById(R.id.registerr).setOnClickListener(view->register());
     }
 
     public void register()

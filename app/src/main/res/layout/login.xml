@@ -78,7 +78,7 @@
             app:layout_constraintVertical_bias="0.726" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:text="Submit"
@@ -89,7 +89,7 @@
             app:layout_constraintVertical_bias="0.94" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/registerr"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="register"

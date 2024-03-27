@@ -36,7 +36,7 @@
             app:layout_constraintVertical_bias="0.0" />
 
         <EditText
-            android:id="@+id/editTextTextEmailAddress3"
+            android:id="@+id/email"
             android:layout_width="260dp"
             android:layout_height="51dp"
             android:ems="10"
@@ -51,7 +51,7 @@
             app:layout_constraintVertical_bias="0.201" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/conpass"
             android:layout_width="260dp"
             android:layout_height="51dp"
             android:ems="10"
@@ -66,7 +66,7 @@
             app:layout_constraintVertical_bias="0.482" />
 
         <EditText
-            android:id="@+id/editTextTextPassword"
+            android:id="@+id/pass"
             android:layout_width="260dp"
             android:layout_height="51dp"
             android:ems="10"
@@ -84,6 +84,7 @@
             android:id="@+id/checkBox"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="box"
             android:text="Are you NGO/Welfare Society"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -93,9 +94,10 @@
             app:layout_constraintVertical_bias="0.601" />
 
         <Button
-            android:id="@+id/button2"
+            android:id="@+id/submit"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
+            android:onClick="submit"
             android:text="Submit"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
@@ -104,7 +106,7 @@
             app:layout_constraintVertical_bias="0.94" />
 
         <TextView
-            android:id="@+id/textView3"
+            android:id="@+id/loginn"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
             android:onClick="login"
@@ -118,7 +120,7 @@
             app:layout_constraintVertical_bias="0.945" />
 
         <EditText
-            android:id="@+id/editTextText"
+            android:id="@+id/name"
             android:layout_width="260dp"
             android:layout_height="51dp"
             android:ems="10"
@@ -132,7 +134,7 @@
             app:layout_constraintVertical_bias="0.104" />
 
         <EditText
-            android:id="@+id/editTextPhone"
+            android:id="@+id/phone"
             android:layout_width="260dp"
             android:layout_height="51dp"
             android:ems="10"
@@ -146,12 +148,13 @@
             app:layout_constraintVertical_bias="0.294" />
 
         <EditText
-            android:id="@+id/editTextText2"
+            android:id="@+id/ngobox"
             android:layout_width="260dp"
             android:layout_height="51dp"
             android:ems="10"
             android:hint="NGO ID/ Society Name"
             android:inputType="text"
+            android:visibility="gone"
             app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.301"
