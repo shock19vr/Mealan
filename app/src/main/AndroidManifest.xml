@@ -16,6 +16,12 @@
             android:name=".reciever"
             android:exported="false" />
         <activity
+            android:name=".donor"
+            android:exported="false" />
+        <activity
+            android:name=".Profile"
+            android:exported="false" />
+        <activity
             android:name=".RegisterActivity"
             android:exported="false" />
         <activity
