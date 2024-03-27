@@ -80,6 +80,7 @@ public class RegisterActivity extends AppCompatActivity {
         EditText conpass = findViewById(R.id.conpass);
         EditText ngo = findViewById(R.id.ngobox);
 
+        CheckBox cb = findViewById(R.id.checkBox);
 
         if (!email.getText().toString().contains("@gmail.com"))
         {
@@ -88,6 +89,14 @@ public class RegisterActivity extends AppCompatActivity {
         else if (!Objects.equals((pass.getText().toString()), conpass.getText().toString()))
         {
             Toast.makeText(getApplicationContext(),"Passwords doesn't Match",Toast.LENGTH_LONG).show();
+        }
+        else if (name.getText().toString().isEmpty() || email.getText().toString().isEmpty() || phone.getText().toString().isEmpty() || pass.getText().toString().isEmpty() || conpass.getText().toString().isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"Fields cannot be Empty",Toast.LENGTH_LONG).show();
+        }
+        else if (cb.isChecked() && ngo.getText().toString().isEmpty())
+        {
+            Toast.makeText(getApplicationContext(),"NGO ID or Welfare Society name is Mandatory",Toast.LENGTH_LONG).show();
         }
         else
         {
@@ -102,36 +111,33 @@ public class RegisterActivity extends AppCompatActivity {
                             for (QueryDocumentSnapshot document : queryDocumentSnapshots)
                             {
 
-                                if (Objects.equals(document.getString("Email ID"), email.getText().toString()))
+                                if (Objects.equals(document.getString("Email"), email.getText().toString()))
                                 {
                                     Toast.makeText(getApplicationContext(),"Email already Registered",Toast.LENGTH_LONG).show();
                                     flagg = 1;
                                     break;
                                 }
-                                else if (Objects.equals(document.getString("Phone No."), phone.getText().toString()))
+                                if (Objects.equals(document.getString("Phone"), phone.getText().toString()))
                                 {
                                     Toast.makeText(getApplicationContext(),"Phone Number already Registered",Toast.LENGTH_LONG).show();
                                     flagg = 1;
                                     break;
                                 }
-
                             }
-                            Toast.makeText(getApplicationContext(),"Wait2",Toast.LENGTH_LONG).show();
-
-
                             if (flagg == 0)
                             {
                                 Map<String,Object> user = new HashMap<>();
                                 user.put("Name",name.getText().toString());
-                                user.put("Email ID",email.getText().toString());
-                                user.put("Phone No.",phone.getText().toString());
+                                user.put("Email",email.getText().toString());
+                                user.put("Phone",phone.getText().toString());
                                 user.put("Password",pass.getText().toString());
-                                user.put("NGO/Welfare Society Name",ngo.getText().toString());
+                                user.put("NGO",ngo.getText().toString());
 
-                                firestore.collection("users").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                                firestore.collection("user").add(user).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
                                     @Override
                                     public void onSuccess(DocumentReference documentReference) {
                                         Toast.makeText(getApplicationContext(), "Registered",Toast.LENGTH_LONG).show();
+                                        login();
                                     }
                                 }).addOnFailureListener(new OnFailureListener() {
                                     @Override
@@ -145,7 +151,7 @@ public class RegisterActivity extends AppCompatActivity {
                     .addOnFailureListener(new OnFailureListener() {
                         @Override
                         public void onFailure(@NonNull Exception e) {
-                            Toast.makeText(getApplicationContext(),"Failed to Register, Try again Later",Toast.LENGTH_LONG).show();
+                            Toast.makeText(getApplicationContext(),"Technical Issue, Try again Later",Toast.LENGTH_LONG).show();
                         }
                     });
         }
@@ -156,4 +162,3 @@ public class RegisterActivity extends AppCompatActivity {
 
 
 }
-
