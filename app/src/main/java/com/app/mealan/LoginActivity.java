@@ -45,6 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+
     public void loggonuser()
     {
 
@@ -66,6 +67,15 @@ public class LoginActivity extends AppCompatActivity {
                                 {
                                     Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_LONG).show();
                                     flagg = 1;
+                                    if (Objects.equals(document.getString("NGO"), "NIL"))
+                                    {
+                                        Toast.makeText(getApplicationContext(),"??????",Toast.LENGTH_LONG).show();
+                                        donor();
+                                    }
+                                    else
+                                    {
+                                        receiver();
+                                    }
                                     break;
                                 }
                             }
@@ -83,5 +93,17 @@ public class LoginActivity extends AppCompatActivity {
                         Toast.makeText(getApplicationContext(),"Technical Error, Try again Later",Toast.LENGTH_LONG).show();
                     }
                 });
+    }
+
+    public void donor()
+    {
+        Intent intent = new Intent(this, DonorActivity.class);
+        startActivity(intent);
+    }
+
+    public void receiver()
+    {
+        Intent intent = new Intent(this, reciever.class);
+        startActivity(intent);
     }
 }

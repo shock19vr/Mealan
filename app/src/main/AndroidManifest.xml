@@ -13,10 +13,10 @@
         android:theme="@style/Theme.Mealan"
         tools:targetApi="31">
         <activity
-            android:name=".reciever"
+            android:name=".DonorActivity"
             android:exported="false" />
         <activity
-            android:name=".donor"
+            android:name=".reciever"
             android:exported="false" />
         <activity
             android:name=".Profile"
