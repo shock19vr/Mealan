@@ -69,7 +69,6 @@ public class LoginActivity extends AppCompatActivity {
                                     flagg = 1;
                                     if (Objects.equals(document.getString("NGO"), "NIL"))
                                     {
-                                        Toast.makeText(getApplicationContext(),"??????",Toast.LENGTH_LONG).show();
                                         donor();
                                     }
                                     else
