@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#99FDE4CE"
+    android:background="#fbe5cd"
     tools:context=".reciever">
 
     <TextView
@@ -18,7 +18,7 @@
         android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.092"
+        app:layout_constraintVertical_bias="0.043"
         tools:layout_editor_absoluteX="34dp" />
 
     <com.google.android.material.chip.ChipGroup
@@ -41,14 +41,14 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VEG"
-        android:textColor="#21BD27"
+        android:textColor="#34BD1C"
         android:textSize="16sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <Switch
         android:id="@+id/switch3"
@@ -68,7 +68,7 @@
         android:id="@+id/constraintLayout4"
         android:layout_width="350dp"
         android:layout_height="126dp"
-        android:background="#C1F3B5"
+        android:background="#abd060"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -84,7 +84,7 @@
         android:layout_height="126dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="#C1F3B5"
+        android:background="#abd060"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
         app:layout_constraintHorizontal_bias="1.0"
@@ -99,7 +99,7 @@
         android:layout_height="126dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:background="#C1F3B5"
+        android:background="#abd060"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout5"
         app:layout_constraintHorizontal_bias="1.0"
