@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#FFFA96"
+    android:background="#0c3a2d"
     tools:context=".reciever">
 
     <TextView
@@ -14,12 +14,13 @@
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
         android:text="Nearby Donors"
-        android:textSize="20sp"
+        android:textColor="#FFFFFF"
+        android:textSize="28sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.119" />
+        app:layout_constraintVertical_bias="0.043" />
 
     <com.google.android.material.chip.ChipGroup
         android:id="@+id/chipGroup"
@@ -41,33 +42,34 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="VEG"
-        android:textColor="#22E62A"
-        android:textSize="24sp"
+        android:textColor="#34BD1C"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.103"
+        app:layout_constraintHorizontal_bias="0.101"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.036" />
+        app:layout_constraintVertical_bias="0.129" />
 
     <Switch
         android:id="@+id/switch3"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="NON-VEG"
-        android:textColor="#FB2F2F"
-        android:textSize="24sp"
+        android:textColor="#D11616"
+        android:textSize="18sp"
         app:layout_constraintBottom_toBottomOf="@+id/switch2"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.225"
+        app:layout_constraintHorizontal_bias="0.254"
         app:layout_constraintStart_toEndOf="@+id/switch2"
-        app:layout_constraintTop_toTopOf="@+id/switch2" />
+        app:layout_constraintTop_toTopOf="@+id/switch2"
+        app:layout_constraintVertical_bias="0.0" />
 
     <androidx.constraintlayout.widget.ConstraintLayout
         android:id="@+id/constraintLayout4"
         android:layout_width="350dp"
         android:layout_height="126dp"
-        android:background="#C1F3B5"
+        android:background="#6b9772"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.491"
@@ -83,7 +85,7 @@
         android:layout_height="126dp"
         android:layout_marginTop="20dp"
         android:layout_marginBottom="20dp"
-        android:background="#C1F3B5"
+        android:background="#6b9772"
         app:layout_constraintBottom_toTopOf="@+id/constraintLayout6"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout4"
         app:layout_constraintHorizontal_bias="1.0"
@@ -98,7 +100,7 @@
         android:layout_height="126dp"
         android:layout_marginTop="15dp"
         android:layout_marginBottom="15dp"
-        android:background="#C1F3B5"
+        android:background="#6b9772"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="@+id/constraintLayout5"
         app:layout_constraintHorizontal_bias="1.0"
