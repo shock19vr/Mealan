@@ -9,6 +9,7 @@
     tools:context=".DonorActivity">
 
     <androidx.constraintlayout.widget.ConstraintLayout
+        android:id="@+id/constraintLayout3"
         android:layout_width="354dp"
         android:layout_height="476dp"
         android:background="#6b9772"
@@ -71,6 +72,19 @@
             app:layout_constraintStart_toStartOf="parent"
             app:layout_constraintTop_toBottomOf="@+id/editTextNumberSigned" />
 
+        <com.google.android.material.floatingactionbutton.FloatingActionButton
+            android:id="@+id/add"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:clickable="true"
+            app:layout_constraintBottom_toBottomOf="parent"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.946"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent"
+            app:layout_constraintVertical_bias="0.961"
+            app:srcCompat="@android:drawable/ic_input_add" />
+
     </androidx.constraintlayout.widget.ConstraintLayout>
 
     <TextView
@@ -81,6 +95,11 @@
         android:text="Create a Post"
         android:textColor="#FFFFFF"
         android:textSize="30sp"
-        tools:layout_editor_absoluteX="115dp"
-        tools:layout_editor_absoluteY="71dp" />
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.502"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.15" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>
