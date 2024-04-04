@@ -62,14 +62,17 @@ public class RegisterActivity extends AppCompatActivity {
 
     public void box()
     {
+        EditText ngobox = findViewById(R.id.ngobox);
         CheckBox cb = findViewById(R.id.checkBox);
         if (cb.isChecked())
         {
-            findViewById(R.id.ngobox).setVisibility(View.VISIBLE);
+            ngobox.setVisibility(View.VISIBLE);
+            ngobox.setText("");
         }
         else
         {
-            findViewById(R.id.ngobox).setVisibility(View.GONE);
+            ngobox.setVisibility(View.GONE);
+            ngobox.setText("NIL");
         }
     }
 
