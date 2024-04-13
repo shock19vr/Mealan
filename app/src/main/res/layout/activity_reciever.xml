@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="#0c3a2d"
+    android:background="@drawable/_43489803_ba9684a6_ed54_4cc1_ad62_b98f1b04dadb"
     tools:context=".reciever">
 
     <TextView
