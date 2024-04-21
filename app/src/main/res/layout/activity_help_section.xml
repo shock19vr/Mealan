@@ -5,22 +5,24 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
+    android:background="@drawable/resource_final"
     tools:context=".help_section">
 
     <TextView
         android:id="@+id/textView4"
-        android:layout_width="186dp"
-        android:layout_height="41dp"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
         android:gravity="center_horizontal"
         android:text="HELP"
         android:textAlignment="center"
-        android:textSize="34sp"
+        android:textColor="#000000"
+        android:textSize="40dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.497"
+        app:layout_constraintHorizontal_bias="0.498"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.049" />
+        app:layout_constraintVertical_bias="0.088" />
 
     <androidx.cardview.widget.CardView
         android:layout_width="wrap_content"
@@ -30,8 +32,10 @@
         app:cardElevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.5"
         app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent">
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.5">
 
         <LinearLayout
             android:layout_width="wrap_content"
@@ -40,18 +44,18 @@
             android:orientation="vertical">
 
             <EditText
-                android:id="@+id/editTextTextEmailAddress2"
+                android:id="@+id/subject"
                 android:layout_width="310dp"
                 android:layout_height="60dp"
                 android:layout_marginTop="45dp"
                 android:background="@drawable/rounded_corner"
                 android:ems="10"
-                android:hint="Enter your email"
-                android:inputType="textEmailAddress"
+                android:hint="Query"
+                android:inputType="text"
                 android:textAlignment="center" />
 
             <EditText
-                android:id="@+id/editTextTextMultiLine2"
+                android:id="@+id/query"
                 android:layout_width="310dp"
                 android:layout_height="155dp"
                 android:layout_marginLeft="25dp"
@@ -60,11 +64,11 @@
                 android:background="@drawable/rounded_corner"
                 android:ems="10"
                 android:gravity="center"
-                android:hint="Enter your query"
+                android:hint="Describe your query"
                 android:inputType="textMultiLine" />
 
             <Button
-                android:id="@+id/button"
+                android:id="@+id/send"
                 android:layout_width="165dp"
                 android:layout_height="50dp"
                 android:layout_marginTop="30dp"

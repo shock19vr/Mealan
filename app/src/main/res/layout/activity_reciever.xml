@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/_43489803_ba9684a6_ed54_4cc1_ad62_b98f1b04dadb"
+    android:background="@drawable/resource_final"
     tools:context=".reciever">
 
     <TextView
@@ -13,51 +13,64 @@
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:fontFamily="sans-serif-medium"
-        android:text="Nearby Donors"
-        android:textColor="#FFFFFF"
-        android:textSize="28sp"
+        android:text="NEARBY DONORS"
+        android:textColor="#000000"
+        android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.495"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.043" />
-
-    <Switch
-        android:id="@+id/switch2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="VEG"
-        android:textColor="#34BD1C"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="parent"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.101"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.129" />
-
-    <Switch
-        android:id="@+id/switch3"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:text="NON-VEG"
-        android:textColor="#D11616"
-        android:textSize="18sp"
-        app:layout_constraintBottom_toBottomOf="@+id/switch2"
-        app:layout_constraintEnd_toEndOf="parent"
-        app:layout_constraintHorizontal_bias="0.254"
-        app:layout_constraintStart_toEndOf="@+id/switch2"
-        app:layout_constraintTop_toTopOf="@+id/switch2"
-        app:layout_constraintVertical_bias="0.0" />
+        app:layout_constraintVertical_bias="0.082" />
 
     <androidx.recyclerview.widget.RecyclerView
         android:id="@+id/listings"
-        android:layout_width="349dp"
-        android:layout_height="592dp"
+        android:layout_width="350dp"
+        android:layout_height="573dp"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.488"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.598" />
+
+    <LinearLayout
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:background="#039BE5"
+        android:orientation="horizontal"
+        android:padding="10dp"
+        android:weightSum="3"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.879" />
+        app:layout_constraintVertical_bias="1.0">
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/homebutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="center"
+            app:srcCompat="@drawable/icons8_home__1_" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/postbutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="center"
+            app:srcCompat="@drawable/icons8_plus" />
+
+        <com.google.android.material.imageview.ShapeableImageView
+            android:id="@+id/profilebutton"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_weight="1"
+            android:scaleType="center"
+            app:srcCompat="@drawable/icons8_male_user_50" />
+
+    </LinearLayout>
 
 </androidx.constraintlayout.widget.ConstraintLayout>

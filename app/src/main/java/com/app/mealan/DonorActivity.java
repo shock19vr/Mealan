@@ -219,21 +219,21 @@ public class DonorActivity extends AppCompatActivity {
     }
     public void homepage()
     {
-        Intent intent = new Intent(this, LoginActivity.class);
-        startActivity(intent);
+        Intent intent = new Intent(this, Donor_home.class);
+        startActivity(intent.putExtra("id",ID));
     }
 
     public void postpage()
     {
         Intent intent = new Intent(this, DonorActivity.class);
-        startActivity(intent);
+        startActivity(intent.putExtra("id",ID));
     }
 
     public void profilepage()
     {
-        Intent intent = new Intent(this, Profile.class);
+        Intent intent = new Intent(this, UserProfilePage.class);
         intent.putExtra("id",ID);
-        startActivity(intent);
+        startActivity(intent.putExtra("id",ID));
     }
 
 }

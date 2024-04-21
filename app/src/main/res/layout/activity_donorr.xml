@@ -5,7 +5,7 @@
     android:id="@+id/main"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:background="@drawable/_d_graphic_wallpaper_with_colorful_grainy_gradients"
+    android:background="@drawable/resource_final"
     tools:context=".DonorActivity">
 
     <androidx.cardview.widget.CardView
@@ -14,6 +14,7 @@
         android:layout_height="wrap_content"
         android:elevation="5dp"
         app:cardCornerRadius="30dp"
+        app:cardElevation="20dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.5"
@@ -24,7 +25,6 @@
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="364dp"
-            android:background="@drawable/_997"
             android:gravity="center"
             android:orientation="vertical"
             android:padding="15dp">
@@ -83,21 +83,21 @@
         android:id="@+id/textView2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:fontFamily="monospace"
-        android:text="Create a Post"
+        android:fontFamily="sans-serif-medium"
+        android:text="CREATE A POST"
         android:textColor="#000000"
-        android:textSize="30sp"
+        android:textSize="35dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.496"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="parent"
-        app:layout_constraintVertical_bias="0.202" />
+        app:layout_constraintVertical_bias="0.185" />
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#9CCC65"
+        android:background="#039BE5"
         android:orientation="horizontal"
         android:padding="10dp"
         android:weightSum="3"

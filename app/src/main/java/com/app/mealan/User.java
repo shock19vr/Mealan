@@ -6,15 +6,17 @@ public class User {
 
 
     String food;
+    String id;
 
     public User()
     {
 
     }
-    public User(String number, String address, String food) {
+    public User(String number, String address, String food, String id) {
         this.number = number;
         this.address = address;
         this.food = food;
+        this.id = id;
     }
 
 
@@ -29,5 +31,10 @@ public class User {
     public String getFood() {
         return food;
     }
+
+    public String getId() {
+        return id;
+    }
+
 
 }

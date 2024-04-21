@@ -1,5 +1,6 @@
 package com.app.mealan;
 
+import android.content.Intent;
 import android.graphics.ColorSpace;
 import android.os.Bundle;
 
@@ -27,6 +28,8 @@ public class reciever extends AppCompatActivity {
     MyAdaptor myAdaptor;
     ArrayList<User> list;
 
+    String ID;
+
     String field;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -45,6 +48,11 @@ public class reciever extends AppCompatActivity {
         recyclerView.setHasFixedSize(true);
         recyclerView.setLayoutManager(new LinearLayoutManager(this));
 
+        ID = getIntent().getStringExtra("id");
+        findViewById(R.id.homebutton).setOnClickListener(view->homepage());
+        findViewById(R.id.postbutton).setOnClickListener(view->postpage());
+        findViewById(R.id.profilebutton).setOnClickListener(view->profilepage());
+
         list = new ArrayList<>();
         database.collection("listing").get()
                 .addOnSuccessListener(new OnSuccessListener<QuerySnapshot>() {
@@ -55,7 +63,7 @@ public class reciever extends AppCompatActivity {
                             String num = document.getString("people");
                             String add = document.getString("address");
                             String foo = document.getString("food");
-                            User temp = new User(num,add,foo);
+                            User temp = new User(num,add,foo, document.getId());
                             list.add(temp);
                         }
                         myAdaptor.notifyDataSetChanged();
@@ -64,5 +72,24 @@ public class reciever extends AppCompatActivity {
         myAdaptor = new MyAdaptor(this,list);
         recyclerView.setAdapter(myAdaptor);
 
+    }
+
+    public void homepage()
+    {
+        Intent intent = new Intent(this, Receiver_home.class);
+        startActivity(intent.putExtra("id",ID));
+    }
+
+    public void postpage()
+    {
+        Intent intent = new Intent(this, reciever.class);
+        startActivity(intent.putExtra("id",ID));
+    }
+
+    public void profilepage()
+    {
+        Intent intent = new Intent(this, UserProfilePage.class);
+        intent.putExtra("id",ID);
+        startActivity(intent.putExtra("id",ID));
     }
 }

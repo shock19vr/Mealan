@@ -146,13 +146,13 @@ public class LoginActivity extends AppCompatActivity {
 
     public void donor()
     {
-        Intent intent = new Intent(this, DonorActivity.class);
+        Intent intent = new Intent(this, Donor_home.class);
         startActivity(intent.putExtra("id",ID));
     }
 
     public void receiver()
     {
-        Intent intent = new Intent(this, reciever.class);
+        Intent intent = new Intent(this, Receiver_home.class);
         intent.putExtra("id",ID);
         startActivity(intent);
     }

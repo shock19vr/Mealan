@@ -1,6 +1,9 @@
 package com.app.mealan;
 
+import static androidx.core.content.ContextCompat.startActivity;
+
 import android.content.Context;
+import android.content.Intent;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -13,8 +16,8 @@ import java.util.ArrayList;
 
 public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
 
-    Context context;
-    ArrayList<User> list;
+    static Context context;
+    static ArrayList<User> list;
 
     public MyAdaptor(Context context, ArrayList<User> list) {
         this.context = context;
@@ -56,8 +59,16 @@ public class MyAdaptor extends RecyclerView.Adapter<MyAdaptor.MyViewHolder> {
 
         @Override
         public void onClick(View v) {
+            int position = this.getAdapterPosition();
+            User user = list.get(position);
+            String id = user.getId();
+
+            Intent intent = new Intent(context, Profile.class);
+            context.startActivity(intent.putExtra("id",id));
 
         }
+
+
     }
 
 }
