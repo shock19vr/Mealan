@@ -45,7 +45,7 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
+    String ID;
     public void loggonuser()
     {
 
@@ -67,6 +67,7 @@ public class LoginActivity extends AppCompatActivity {
                                 {
                                     Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_LONG).show();
                                     flagg = 1;
+                                    ID = document.getId();
                                     if (Objects.equals(document.getString("NGO"), "NIL"))
                                     {
                                         donor();
@@ -97,12 +98,13 @@ public class LoginActivity extends AppCompatActivity {
     public void donor()
     {
         Intent intent = new Intent(this, DonorActivity.class);
-        startActivity(intent);
+        startActivity(intent.putExtra("id",ID));
     }
 
     public void receiver()
     {
         Intent intent = new Intent(this, reciever.class);
+        intent.putExtra("id",ID);
         startActivity(intent);
     }
 }
