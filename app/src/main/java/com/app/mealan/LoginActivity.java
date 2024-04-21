@@ -1,7 +1,9 @@
 package com.app.mealan;
 
 import android.content.Intent;
+import android.content.SharedPreferences;
 import android.os.Bundle;
+import android.widget.CheckBox;
 import android.widget.EditText;
 import android.widget.Toast;
 
@@ -24,8 +26,11 @@ public class LoginActivity extends AppCompatActivity {
 
     FirebaseFirestore db = FirebaseFirestore.getInstance();
 
+    public static final String shared_prefs = "NIL";
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
+        remember();
         super.onCreate(savedInstanceState);
         EdgeToEdge.enable(this);
         setContentView(R.layout.login);
@@ -35,8 +40,38 @@ public class LoginActivity extends AppCompatActivity {
             return insets;
         });
 
+
+
+
         findViewById(R.id.registerr).setOnClickListener(view->register());
         findViewById(R.id.loggon).setOnClickListener(view->loggonuser());
+
+
+    }
+    String ID;
+    private void remember() {
+        SharedPreferences sharedPreferences = getSharedPreferences(shared_prefs,MODE_PRIVATE);
+        String check = sharedPreferences.getString("name","");
+        if (!check.equals("NIL"))
+        {
+            db.collection("user").whereEqualTo("Email",check).get()
+                    .addOnSuccessListener(queryDocumentSnapshots -> {
+                        for (QueryDocumentSnapshot document : queryDocumentSnapshots)
+                        {
+                            ID = document.getId();
+                            if (Objects.equals(document.getString("NGO"), "NIL"))
+                            {
+                                donor();
+                            }
+                            else
+                            {
+                                receiver();
+                            }
+                            break;
+                        }
+                    }).addOnFailureListener(e -> Toast.makeText(getApplicationContext(),"Technical Error, Try again Later",Toast.LENGTH_LONG).show());
+
+        }
     }
 
     public void register()
@@ -45,12 +80,19 @@ public class LoginActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    String ID;
+
     public void loggonuser()
     {
 
         EditText email = findViewById(R.id.email);
         EditText pass = findViewById(R.id.pass);
+
+        CheckBox cb = findViewById(R.id.remember);
+
+        SharedPreferences sharedPreferences = getSharedPreferences(shared_prefs,MODE_PRIVATE);
+        SharedPreferences.Editor editor = sharedPreferences.edit();
+        editor.putString("name","NIL");
+        editor.apply();
 
         db.collection("user")
                 .get()
@@ -68,6 +110,13 @@ public class LoginActivity extends AppCompatActivity {
                                     Toast.makeText(getApplicationContext(),"Login Successful",Toast.LENGTH_LONG).show();
                                     flagg = 1;
                                     ID = document.getId();
+                                    if (cb.isChecked())
+                                    {
+                                        SharedPreferences sharedPreferences = getSharedPreferences(shared_prefs,MODE_PRIVATE);
+                                        SharedPreferences.Editor editor = sharedPreferences.edit();
+                                        editor.putString("name",email.getText().toString());
+                                        editor.apply();
+                                    }
                                     if (Objects.equals(document.getString("NGO"), "NIL"))
                                     {
                                         donor();

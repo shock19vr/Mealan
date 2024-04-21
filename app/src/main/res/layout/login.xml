@@ -64,7 +64,7 @@
                 app:layout_constraintVertical_bias="0.386" />
 
             <CheckBox
-                android:id="@+id/checkBox"
+                android:id="@+id/remember"
                 android:layout_width="wrap_content"
                 android:layout_height="wrap_content"
                 android:text="Remember Me"
@@ -95,6 +95,7 @@
                 android:onClick="register"
                 android:text="or Register"
                 android:textColor="#0125A6"
+                android:textSize="15dp"
                 app:layout_constraintBottom_toBottomOf="parent"
                 app:layout_constraintEnd_toEndOf="parent"
                 app:layout_constraintHorizontal_bias="0.933"

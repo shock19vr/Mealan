@@ -1,9 +1,13 @@
 package com.app.mealan;
 
+import static com.google.android.gms.common.util.CollectionUtils.listOf;
+
 import android.content.Intent;
 import android.os.Bundle;
+import android.widget.ArrayAdapter;
 import android.widget.Button;
 import android.widget.EditText;
+import android.widget.MultiAutoCompleteTextView;
 import android.widget.Toast;
 
 import androidx.activity.EdgeToEdge;
@@ -19,13 +23,134 @@ import com.google.android.material.floatingactionbutton.FloatingActionButton;
 import com.google.firebase.firestore.DocumentReference;
 import com.google.firebase.firestore.FirebaseFirestore;
 
+import java.util.ArrayList;
 import java.util.HashMap;
+import java.util.List;
 import java.util.Map;
 
 public class DonorActivity extends AppCompatActivity {
 
     FirebaseFirestore firestore;
     String ID;
+
+    String[] list = {"Biryani",
+            "Pulao",
+            "Khichdi",
+            "Lemon Rice",
+            "Tomato Rice",
+            "Curd Rice",
+            "Tamarind Rice",
+            "Coconut Rice",
+            "Jeera Rice",
+            "Ghee Rice",
+            "Pongal",
+            "Bisi Bele Bath",
+            "Chitranna",
+            "Vangi Bath",
+            "Ambil Biriyani",
+            "Malabar Biriyani",
+            "Zarda Pulao",
+            "Tehri",
+            "Tehchambal",
+            "Bagara Rice",
+            "Butter Chicken",
+            "Chicken Tikka Masala",
+            "Rogan Josh",
+            "Kadhai Paneer",
+            "Palak Paneer",
+            "Chana Masala",
+            "Dal Makhani",
+            "Sambar",
+            "Rasam",
+            "Aloo Gobi",
+            "Baingan Bharta",
+            "Chettinad Chicken Curry",
+            "Malvani Curry",
+            "Korma",
+            "Saag Curry",
+            "Navratan Korma",
+            "Fish Curry",
+            "Prawn Curry",
+            "Laal Maas",
+            "Vindaloo",
+            "Madras Curry",
+            "Malabar Curry",
+            "Dhansak",
+            "Paneer Butter Masala",
+            "Kadhi Pakora",
+            "Toor Dal",
+            "Masoor Dal",
+            "Moong Dal",
+            "Chana Dal",
+            "Urad Dal",
+            "Rajma",
+            "Lobiya",
+            "Sambar Dal",
+            "Moth Dal",
+            "Kulith Dal",
+            "Chhola",
+            "Val Dal",
+            "Lobia",
+            "Rawan Dal",
+            "Maah Dal",
+            "Masoor Sabut",
+            "Tuvar Dal",
+            "Kala Chana",
+            "Kabuli Chana",
+            "Sem",
+            "Idli",
+            "Dosa",
+            "Uttapam",
+            "Vada",
+            "Upma",
+            "Poha",
+            "Paratha",
+            "Chole Bhature",
+            "Aloo Paratha",
+            "Samosa",
+            "Medu Vada",
+            "Masala Dosa",
+            "Puri Bhaji",
+            "Kachori",
+            "Jalebi",
+            "Halwa",
+            "Chilla",
+            "Cheela",
+            "Dhokla",
+            "Sev Usal",
+            "Misal Pav",
+            "Sabudana Khichdi",
+            "Poori Sabzi",
+            "Shahi Tukda",
+            "Bread Pakora",
+            "Bun Maska",
+            "Gulab Jamun",
+            "Jalebi",
+            "Rasmalai",
+            "Rasgulla",
+            "Ladoo",
+            "Barfi",
+            "Halwa",
+            "Sandesh",
+            "Kalakand",
+            "Kheer",
+            "Kulfi",
+            "Rabdi",
+            "Phirni",
+            "Shrikhand",
+            "Peda",
+            "Mysore Pak",
+            "Badam Halwa",
+            "Jangri",
+            "Gujiya",
+            "Imarti",
+            "Sohan Halwa",
+            "Dharwad Pedha",
+            "Basundi",
+            "Malai Sandesh",
+            "Chandrakala"
+            };
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -45,6 +170,12 @@ public class DonorActivity extends AppCompatActivity {
 
         firestore = FirebaseFirestore.getInstance();
         ID = getIntent().getStringExtra("id");
+
+        MultiAutoCompleteTextView foods = findViewById(R.id.fooddetails);
+        ArrayAdapter<String> adapter = new ArrayAdapter<String>(this,android.R.layout.simple_list_item_1,list);
+        foods.setAdapter(adapter);
+        foods.setTokenizer(new MultiAutoCompleteTextView.CommaTokenizer());
+
     }
 
 
@@ -56,23 +187,35 @@ public class DonorActivity extends AppCompatActivity {
         EditText address = (EditText) findViewById(R.id.address);
         EditText people = (EditText) findViewById(R.id.people);
 
+
+
         Map<String,Object> listing = new HashMap<>();
         listing.put("food",food.getText().toString());
         listing.put("address",address.getText().toString());
         listing.put("people",people.getText().toString());
         listing.put("user",ID);
 
-        firestore.collection("listing").add(listing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
-            @Override
-            public void onSuccess(DocumentReference documentReference) {
-                Toast.makeText(getApplicationContext(), "Post Created",Toast.LENGTH_LONG).show();
-            }
-        }).addOnFailureListener(new OnFailureListener() {
-            @Override
-            public void onFailure(@NonNull Exception e) {
-                Toast.makeText(getApplicationContext(), "Failed to Post",Toast.LENGTH_LONG).show();
-            }
-        });
+
+        if (food.getText().toString().isEmpty() || address.getText().toString().isEmpty() || people.getText().toString().isEmpty())
+        {
+            Toast.makeText(getApplicationContext(), "Incomplete Details",Toast.LENGTH_LONG).show();
+        }
+        else
+        {
+            firestore.collection("listing").add(listing).addOnSuccessListener(new OnSuccessListener<DocumentReference>() {
+                @Override
+                public void onSuccess(DocumentReference documentReference) {
+                    Toast.makeText(getApplicationContext(), "Post Created",Toast.LENGTH_LONG).show();
+                }
+            }).addOnFailureListener(new OnFailureListener() {
+                @Override
+                public void onFailure(@NonNull Exception e) {
+                    Toast.makeText(getApplicationContext(), "Failed to Post",Toast.LENGTH_LONG).show();
+                }
+            });
+            Intent intent = new Intent(this, DonorActivity.class);
+            startActivity(intent.putExtra("id",ID));
+        }
     }
     public void homepage()
     {
